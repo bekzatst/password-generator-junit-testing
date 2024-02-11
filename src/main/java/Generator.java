@@ -1,6 +1,3 @@
-package main;
-
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Generator {
@@ -48,7 +45,7 @@ public class Generator {
         }
     }
 
-    private Password GeneratePassword(int length) {
+    public Password GeneratePassword(int length) {
         final StringBuilder pass = new StringBuilder("");
 
         final int alphabetLength = alphabet.getAlphabet().length();
@@ -65,7 +62,7 @@ public class Generator {
         return new Password(pass.toString());
     }
 
-    private void printUsefulInfo() {
+    public void printUsefulInfo() {
         System.out.println();
         System.out.println("Use a minimum password length of 8 or more characters if permitted");
         System.out.println("Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");
@@ -79,7 +76,7 @@ public class Generator {
         System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");
     }
 
-    private void requestPassword() {
+    public void requestPassword() {
         boolean IncludeUpper = false;
         boolean IncludeLower = false;
         boolean IncludeNum = false;
@@ -145,7 +142,7 @@ public class Generator {
         System.err.println("Your generated password -> " + password);
     }
 
-    private boolean isInclude(String Input) {
+    public boolean isInclude(String Input) {
         if (Input.equalsIgnoreCase("yes")) {
             return true;
         }
@@ -154,13 +151,13 @@ public class Generator {
         }
     }
 
-    private void PasswordRequestError(String i) {
+    public void PasswordRequestError(String i) {
         if (!i.equalsIgnoreCase("yes") && !i.equalsIgnoreCase("no")) {
             System.out.println("You have entered something incorrect let's go over it again \n");
         }
     }
 
-    private void checkPassword() {
+    public void checkPassword() {
         String input;
 
         System.out.print("\nEnter your password:");
@@ -171,7 +168,7 @@ public class Generator {
         System.out.println(p.calculateScore());
     }
 
-    private void printMenu() {
+    public void printMenu() {
         System.out.println();
         System.out.println("Enter 1 - Password Generator");
         System.out.println("Enter 2 - Password Strength Check");
@@ -180,7 +177,7 @@ public class Generator {
         System.out.print("Choice:");
     }
 
-    private void printQuitMessage() {
+    public void printQuitMessage() {
         System.out.println("Closing the program bye bye!");
     }
 }
