@@ -20,13 +20,12 @@ public class GeneratorTest {
 
     @Test
     public void testGeneratePassword() {
+        Generator generator = new Generator(true, true, false, false);
         Password password = generator.GeneratePassword(8);
         assertNotNull(password);
         assertEquals(8, password.Length);
-
-        password = generator.GeneratePassword(16);
-        assertNotNull(password);
-        assertEquals(16, password.Length);
+        assertTrue(password.toString().matches(".*[A-Z].*"));
+        assertTrue(password.toString().matches(".*[a-z].*"));
     }
 
     @Test
